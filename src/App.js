@@ -5,7 +5,7 @@ import Home from './Containers/Home/Home';
 function App() {
   return (
     <div className="App">
-      <Home/>
+      <Home company={"New Work"}/>
     </div>
   );
 }

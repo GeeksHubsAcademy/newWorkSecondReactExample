@@ -3,17 +3,25 @@ import React from 'react';
 
 import "./Home.css";
 
-const Home = () => {
+const Home = (props) => {
 
     //Variables
-    let arrayDrinks = ["mojito","coke","water","lemonade","vodka"];
+    let arrayDrinks = [{ id: 1, name: "mojito" }, { id: 2, name: "coke" },
+    { id: 3, name: "water" }, { id: 4, name: "lemonade" }, { id: 5, name: "vodka" }];
 
-    let mapList = arrayDrinks.map(diogoDrink => 
-        <div className="drinkShowroom">{diogoDrink}</div>
+    let mapList = arrayDrinks.map(diogoDrink =>
+        //We usually put ids or values that are never to be repeated on the key property
+        <div className="drinkShowroom" key={diogoDrink.id}
+            onClick={() => talkMeDrink(diogoDrink)}>
+            {diogoDrink.name}</div>
     );
 
+    const talkMeDrink = (drink) => {
+        console.log(drink.name);
+    };
+
     return (
-        <div className="homeDesign">{mapList}</div>
+        <div className="homeDesign">{mapList}{props.company}</div>
     )
 };
 
